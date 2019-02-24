@@ -21,7 +21,7 @@ Route::get("index", "PagesController@index");
 Route::get("record", "PagesController@castle_record");
 
 //実績一覧用ページ
-Route::get("achive", "PagesController@achive");
+Route::get("achieve", "PagesController@achieve");
 
 //画像アップロード
 Route::post("img_up",[

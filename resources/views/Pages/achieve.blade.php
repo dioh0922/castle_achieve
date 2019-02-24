@@ -8,13 +8,10 @@
   ・城名とスタンプを一覧にしていく
 </div>
 
-@if($is_image)
-  <figure>
-    <img src="{{asset('profile_images/test.png')}}">
-    <figcaption>アップ画像(public配下のファイル)</figcaption>
-  </figure>
-@endif
-
-@if(!$is_image)
-  {{$is_image}} <h1>ないとき</h1>
-@endif
+@foreach($achieve_list as $data)
+  @if($data->img_exist)
+    {{$data->castle_name}}
+    <img src="{{asset($data->img_path)}}">
+    <br>
+  @endif
+@endforeach
