@@ -15,8 +15,23 @@ class PagesController extends Controller
 {
     //
     public function index(){
-      return view("Pages.main", [
-        "sqlResult" => Achieve::all()
+      $select_list = Achieve::all();
+      //画像名からファイルのパスとしてビューに渡す
+      foreach($select_list as $list){
+        $path = "profile_images/".$list->stamp_name;
+        $list->img_path = $path;
+
+        //画像ファイルが存在するか判定し、表示するか決定
+        if(File::exists($path)){
+          $list->img_exist = true;
+        }else{
+          $list->img_exist = false;
+        }
+      }
+
+      return  view("Pages.main", [
+        //"is_image" => $is_image,
+        "achieve_list" => $select_list
       ]);
     }
 
@@ -57,32 +72,7 @@ class PagesController extends Controller
 
     //実績一覧用ページ、名前と画像を一覧表示する
     public function achieve(){
-/*
-      $is_image = false;
-
-      if(File::exists("profile_images/test.png")){
-        $is_image = true;
-      }
-*/
-      //モデルを通して全取得
-      $select_list = Achieve::all();
-      //画像名からファイルのパスとしてビューに渡す
-      foreach($select_list as $list){
-        $path = "profile_images/".$list->stamp_name;
-        $list->img_path = $path;
-
-        //画像ファイルが存在するか判定し、表示するか決定
-        if(File::exists($path)){
-          $list->img_exist = true;
-        }else{
-          $list->img_exist = false;
-        }
-      }
-
-
-      return  view("Pages.achieve", [
-        //"is_image" => $is_image,
-        "achieve_list" => $select_list
-      ]);
+      //地図上にプロットしていく等の表示をさせる
+      return view("Pages.achieve");
     }
 }
