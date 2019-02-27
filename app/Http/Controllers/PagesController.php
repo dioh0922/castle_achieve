@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use \App\Achieve;
+use \App\Catsle;
 
 use App\Http\Requests;
 use App\Http\Requests\ProfileRequest;
@@ -74,5 +75,11 @@ class PagesController extends Controller
     public function achieve(){
       //地図上にプロットしていく等の表示をさせる
       return view("Pages.achieve");
+    }
+
+    //DBからajaxでget
+    public function castle_data(){
+      $all = Catsle::all();
+      return response()->json(["all" => $all]);
     }
 }

@@ -23,6 +23,9 @@ Route::get("record", "PagesController@castle_record");
 //実績一覧用ページ
 Route::get("achieve", "PagesController@achieve");
 
+//DBから城情報取得
+Route::get("castle_data", "PagesController@castle_data");
+
 //画像アップロード
 Route::post("img_up",[
   "uses" => "PagesController@img_upload",
