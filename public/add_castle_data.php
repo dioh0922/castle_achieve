@@ -1,5 +1,4 @@
 <?php
-  require "database_connect.php";
 
   mb_language("ja");
   mb_internal_encoding("UTF-8");
@@ -15,7 +14,28 @@
     $iter->東経
     );
 
-    $result = db_connect($query);
+    //$result = db_connect($query);
+    $url = "localhost";
+    $user = "dioh09";
+    $pass = "youjojomhp09";
+    $db = "movie_database";
+
+    $mysqli = new mysqli($url, $user, $pass, $db);
+    if($mysqli->connect_error){
+      print $mysqli->connect_error;
+      exit();
+    }else{
+      $mysqli->set_charset("utf8");
+    }
+
+    $query_result = $mysqli->query($query);
+
+    $close_result = $mysqli->close();
+    if($close_result){
+      //print "closeした";
+    }else{
+      print $mysqli->connect_error;
+    }
   }
 
   print($query);

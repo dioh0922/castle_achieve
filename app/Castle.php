@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Catsle extends Model
+class Castle extends Model
 {
   //
   public $timestamps = false;   //タイムスタンプなし → update_atとかつかないようにする

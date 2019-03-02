@@ -17,10 +17,6 @@
     <h1>実績ページ表示</h1>
     <a href="{{action('PagesController@index')}}">メインへ</a><br>
 
-    <div>
-      地図等で達成度を表示するページにする(予定)<br>
-      Google Map APIとか
-    </div>
     <div id="map" style="width:100%;height:100%;"></div>
     <script src="resource/js/achieve_disp.js"></script>
   </body>

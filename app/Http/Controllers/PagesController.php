@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use \App\Achieve;
-use \App\Catsle;
+use \App\Castle;
 
 use App\Http\Requests;
 use App\Http\Requests\ProfileRequest;
@@ -79,7 +79,21 @@ class PagesController extends Controller
 
     //DBからajaxでget
     public function castle_data(){
-      $all = Catsle::all();
-      return response()->json(["all" => $all]);
+      //$all = Catsle::all();
+      //行った城を実績から抽出する
+      $already = Castle::select()
+              ->join("stamp_data", "name", "=", "castle_name")
+              ->get();
+
+      //行ってない残りのリストを取得
+      $yet     = Castle::select()
+              ->leftJoin("stamp_data", "name", "=", "castle_name")
+              ->whereNull("stamp_name")
+              ->get();
+
+      return response()->json([
+        "already" => $already,
+        "yet" => $yet
+      ]);
     }
 }
