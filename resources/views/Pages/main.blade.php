@@ -16,6 +16,7 @@
       <div class="page-header">
         <h1>100名城実績ページ</h1>
       </div>
+      <input type="button" class="btn btn-danger" onclick="location.href='http://dioh000.s1007.xrea.com/index.html'" value="Webアプリメインへ">
       <input type="button" class="btn btn-primary" onclick="location.href='{{action('PagesController@castle_record')}}'"value="実績記録へ">
       <input type="button" class="btn btn-success" onclick="location.href='{{action('PagesController@achieve')}}'"value="地図表示">
       <br>

@@ -12,18 +12,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <style>
       body{
-        background-color: #eecccc;
+        background-color: #ccccff;
       }
     </style>
   </head>
 
   <body>
     <div class="container ">
-      <h1>追記ページ表示</h1>
+      <h1>追記ページ</h1>
 
-      <p>・行ったところをマークする</p>
-      <p>　－城名も入力するか、選択できるようにするか</p>
-
+      <p>・スタンプ画像は幅240pxに編集したpngファイルであること</p>
+      <p>・城名はセレクトボックスから選択すること</p>
 
       <input type="button" class="btn btn-primary" onclick="location.href='{{action('PagesController@index')}}'"value="一覧表示へ">
 
@@ -42,7 +41,7 @@
             @endforeach
           </select>
         </div>
-        <input type="submit">
+        <input type="submit" class="btn btn-danger">
       </form>
 
 
