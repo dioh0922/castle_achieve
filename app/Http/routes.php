@@ -31,3 +31,12 @@ Route::post("img_up",[
   "uses" => "PagesController@img_upload",
   "as" => "Pages.upload"
 ]);
+
+
+Route::get("login", "PagesController@login");
+Route::get("logout", "PagesController@logout");
+
+Route::post("login_check", [
+  "uses" => "PagesController@login_check",
+  "as" => "Pages.login_check"
+]);

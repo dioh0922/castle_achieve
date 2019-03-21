@@ -12,7 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <style>
       body{
-        background-color: #ccccff;
+        background-color: #ddddff;
       }
     </style>
   </head>
@@ -25,7 +25,7 @@
       <p>・城名はセレクトボックスから選択すること</p>
 
       <input type="button" class="btn btn-primary" onclick="location.href='{{action('PagesController@index')}}'"value="一覧表示へ">
-
+      <input type="button" class="btn btn-info" onclick="location.href='{{action('PagesController@logout')}}'" value="ログアウト">
       <form method="post" action="{{ route( 'Pages.upload' ) }}" enctype="multipart/form-data">
         {{csrf_field()}}
         <br>
