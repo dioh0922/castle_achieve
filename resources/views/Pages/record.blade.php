@@ -30,8 +30,12 @@
         {{csrf_field()}}
         <br>
         <div class="form-group">
-          <label for="stamp_img">100名城スタンプ画像</label>
+          <label for="stamp_img">城独自スタンプ画像</label>
           <input type="file" name="photo" id="stamp_img">
+        </div>
+        <div class="form-group">
+          <label for="famus_img">100名城スタンプラリー画像</label>
+          <input type="file" name="famus" id="famus_img">
         </div>
         <div class="form-group">
           <label for="castle_name">城名</label>

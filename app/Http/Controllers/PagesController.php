@@ -21,14 +21,22 @@ class PagesController extends Controller
       $select_list = Achieve::all();
       //画像名からファイルのパスとしてビューに渡す
       foreach($select_list as $list){
-        $path = "profile_images/".$list->stamp_name;
+        $path = "castle_stamp/".$list->stamp_name;
         $list->img_path = $path;
 
+        $path_100 = "100_famus/".$list->castle_name."_100.png";
+        $list->famus_img_path = $path_100;
         //画像ファイルが存在するか判定し、表示するか決定
         if(File::exists($path)){
           $list->img_exist = true;
         }else{
           $list->img_exist = false;
+        }
+
+        if(File::exists($path_100)){
+          $list->famus_exsist = true;
+        }else{
+          $list->famus_exsist = false;
         }
       }
 
@@ -58,9 +66,11 @@ class PagesController extends Controller
     //画像アップロード用　リクエストから画像ファイルをとって保存する
     public function img_upload(ProfileRequest $request){
       $f_name = $request->name . ".png";
+      $f_famus_name = $request->name."_100.png";
       //ファイル名を指定してパスに保存
       //「C:\xampp\htdocs\laravel_test\public\profile_images」に指定
-      $request->photo->move("profile_images",$f_name);
+      $request->photo->move("castle_stamp", $f_name);
+      $request->famus->move("100_famus", $f_famus_name);
       //データベースに名前と画像と日時を記録する
       $castle = new Achieve;
       $castle->stamp_name = $f_name;
