@@ -25,7 +25,7 @@
 					<thead>
 						<tr>
 							<th>城名</th>
-							<th>スタンプ</th>
+							<th>城独自スタンプ</th>
 							<th>100名城スタンプ</th>
 						</tr>
 					</thead>
@@ -36,11 +36,7 @@
 							@if($data->famus_exsist)
 								<tr>
 									<td>{{$data->castle_name}}</td>
-										@if($data->img_exist)
-											<td><img src="{{asset($data->img_path)}}"></td>
-										@else
-											<td><img src="http://localhost/castle_achieve/public/castle_stamp/not_org.png"</td>
-										@endif
+									<td><img src="{{asset($data->img_path)}}"></td>
 									<td><img src="{{asset($data->famus_img_path)}}"></td>
 								</tr>
 							@endif

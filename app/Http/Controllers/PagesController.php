@@ -26,13 +26,8 @@ class PagesController extends Controller
 
         $path_100 = "100_famus/".$list->castle_name."_100.png";
         $list->famus_img_path = $path_100;
-        //画像ファイルが存在するか判定し、表示するか決定
-        if(File::exists($path)){
-          $list->img_exist = true;
-        }else{
-          $list->img_exist = false;
-        }
 
+        //100名城のスタンプ画像は必ず存在するはずのため、表示するか判定する
         if(File::exists($path_100)){
           $list->famus_exsist = true;
         }else{
@@ -65,11 +60,15 @@ class PagesController extends Controller
 
     //画像アップロード用　リクエストから画像ファイルをとって保存する
     public function img_upload(ProfileRequest $request){
-      $f_name = $request->name . ".png";
-      $f_famus_name = $request->name."_100.png";
+			//独自のスタンプがないときにない画像を表示するようにする
+			$f_name = "not_org.png";
+			if($request->photo != null){
+				$f_name = $request->name . ".png";
+			 	$request->photo->move("castle_stamp", $f_name);
+      }
+
+			$f_famus_name = $request->name."_100.png";
       //ファイル名を指定してパスに保存
-      //「C:\xampp\htdocs\laravel_test\public\profile_images」に指定
-      $request->photo->move("castle_stamp", $f_name);
       $request->famus->move("100_famus", $f_famus_name);
       //データベースに名前と画像と日時を記録する
       $castle = new Achieve;
