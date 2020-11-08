@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>実績表示</title>
 
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>s
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</head>
@@ -24,9 +24,13 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th>城名</th>
-							<th>城独自スタンプ</th>
+							<th><div class="text-center">城名</div></th>
+							<th><div class="text-center">城スタンプ</div></th>
+							<?php
+							/*
 							<th>100名城スタンプ</th>
+							*/
+							?>
 						</tr>
 					</thead>
 
@@ -35,9 +39,13 @@
 						@foreach($achieve_list as $data)
 							@if($data->famus_exsist)
 								<tr>
-									<td>{{$data->castle_name}}</td>
-									<td><img src="{{asset($data->img_path)}}"></td>
+									<td><div class="text-center">{{$data->castle_name}}</div></td>
+									<td><div class="text-center"><img src="{{asset($data->img_path)}}"></div></td>
+									<?php
+									/*
 									<td><img src="{{asset($data->famus_img_path)}}"></td>
+									*/
+									?>
 								</tr>
 							@endif
 						@endforeach

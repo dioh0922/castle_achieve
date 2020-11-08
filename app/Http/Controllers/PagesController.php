@@ -24,7 +24,10 @@ class PagesController extends Controller
         $path = "castle_stamp/".$list->stamp_name;
         $list->img_path = $path;
 
-        $path_100 = "100_famus/".$list->castle_name."_100.png";
+				$list->famus_exsist = true;
+
+				/*
+        //$path_100 = "100_famus/".$list->castle_name."_100.png";
         $list->famus_img_path = $path_100;
 
         //100名城のスタンプ画像は必ず存在するはずのため、表示するか判定する
@@ -33,6 +36,7 @@ class PagesController extends Controller
         }else{
           $list->famus_exsist = false;
         }
+				*/
       }
 
       return  view("Pages.main", [
@@ -67,9 +71,11 @@ class PagesController extends Controller
 			 	$request->photo->move("castle_stamp", $f_name);
       }
 
+			/*
 			$f_famus_name = $request->name."_100.png";
       //ファイル名を指定してパスに保存
       $request->famus->move("100_famus", $f_famus_name);
+			*/
       //データベースに名前と画像と日時を記録する
       $castle = new Achieve;
       $castle->stamp_name = $f_name;

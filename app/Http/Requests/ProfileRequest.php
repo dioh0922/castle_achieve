@@ -14,9 +14,11 @@ class ProfileRequest extends FormRequest
   {
     return[
       "photo" =>
-      "file|image|mimes:jpeg,png,jpg,gif|max:2048",
-      "famus" =>
+      "file|image|mimes:jpeg,png,jpg,gif|max:2048"
+			/*
+			"famus" =>
       "required|file|image|mimes:jpeg,png,jpg,gif|max:2048"
+			*/
     ];
   }
 }

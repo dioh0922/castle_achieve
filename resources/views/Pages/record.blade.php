@@ -21,7 +21,6 @@
     <div class="container ">
       <h1>追記ページ</h1>
 
-      <p>・スタンプ画像は幅240pxに編集したpngファイルであること</p>
       <p>・城名はセレクトボックスから選択すること</p>
 
       <input type="button" class="btn btn-primary" onclick="location.href='{{action('PagesController@index')}}'"value="一覧表示へ">
@@ -33,10 +32,13 @@
           <label for="stamp_img">城独自スタンプ画像</label>
           <input type="file" name="photo" id="stamp_img">
         </div>
+<!---
         <div class="form-group">
           <label for="famus_img">100名城スタンプラリー画像</label>
           <input type="file" name="famus" id="famus_img">
         </div>
+--->
+
         <div class="form-group">
           <label for="castle_name">城名</label>
           <select name="name" id="castle_name">
