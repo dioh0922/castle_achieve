@@ -1,5 +1,4 @@
 
-const all_castle_url = "http://localhost/castle_achieve/public/castle_data";
 var map;
 
 function init(){
@@ -20,7 +19,7 @@ function init(){
 function get_all_castle(){
   $.ajax({
     type: "GET",
-    url: all_castle_url,
+    url: "./castle_data",
     cacha: false
   })
   .done(function(get_result){
