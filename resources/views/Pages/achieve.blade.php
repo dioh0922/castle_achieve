@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>地図表示ページ</title>
 
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <link rel="stylesheet" href="resource/css/leaflet.css"/>
+    <script src="resource/js/leaflet.js"></script>
 
     <script type="text/javascript" src="resource/js/jquery-1.12.1.min.js"></script>
 
